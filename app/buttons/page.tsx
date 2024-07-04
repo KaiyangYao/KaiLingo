@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button'
 
 const ButtonPage = () => {
   return (
@@ -16,7 +16,7 @@ const ButtonPage = () => {
       <Button variant="sidebar">Siderbar</Button>
       <Button variant="sidebarOutline">Siderbar Outline</Button>
     </div>
-  );
-};
+  )
+}
 
-export default ButtonPage;
+export default ButtonPage

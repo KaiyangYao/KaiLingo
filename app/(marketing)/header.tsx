@@ -1,7 +1,14 @@
-import Image from "next/image";
-import { ClerkLoading, ClerkLoaded, SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import { Loader } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Image from 'next/image'
+import {
+  ClerkLoading,
+  ClerkLoaded,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from '@clerk/nextjs'
+import { Loader } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export const Header = () => {
   return (
@@ -28,5 +35,5 @@ export const Header = () => {
         </ClerkLoaded>
       </div>
     </header>
-  );
-};
+  )
+}

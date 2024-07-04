@@ -1,23 +1,23 @@
-"use client";
+'use client'
 
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 type Props = {
-  label: string;
-  iconSrc: string;
-  href: string;
-};
+  label: string
+  iconSrc: string
+  href: string
+}
 
 export const SidebarItem = ({ label, iconSrc, href }: Props) => {
-  const pathname = usePathname();
-  const active = pathname === href;
+  const pathname = usePathname()
+  const active = pathname === href
 
   return (
     <Button
-      variant={active ? "sidebarOutline" : "sidebar"}
+      variant={active ? 'sidebarOutline' : 'sidebar'}
       className="justfy-start h-[52px]"
       asChild
     >
@@ -26,5 +26,5 @@ export const SidebarItem = ({ label, iconSrc, href }: Props) => {
         {label}
       </Link>
     </Button>
-  );
-};
+  )
+}
