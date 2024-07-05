@@ -3,9 +3,10 @@ import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import { InfinityIcon } from 'lucide-react'
+import { courses } from '@/db/schema'
 
 type Props = {
-  activeCourse: { imageSrc: string; title: string } // TODO: Replace with DB types
+  activeCourse: typeof courses.$inferSelect
   hearts: number
   points: number
   hasActiveSubscription: boolean
@@ -19,7 +20,7 @@ export const UserProgress = ({ activeCourse, hearts, points, hasActiveSubscripti
           <Image
             src={activeCourse.imageSrc}
             alt={activeCourse.title}
-            className="rounded-md border"
+            className="rounded-md"
             width={32}
             height={32}
           />
