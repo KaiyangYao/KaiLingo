@@ -8,7 +8,7 @@ export const courses = pgTable('courses', {
 })
 
 export const units = pgTable('units', {
-  id: serial('id').primaryKey(),
+  id: integer('id').primaryKey(),
   title: text('title').notNull(),
   description: text('description').notNull(),
   courseId: integer('course_id')
@@ -18,7 +18,7 @@ export const units = pgTable('units', {
 })
 
 export const lessons = pgTable('lessons', {
-  id: serial('id').primaryKey(),
+  id: integer('id').primaryKey(),
   title: text('title').notNull(),
   unitId: integer('unit_id')
     .references(() => units.id, { onDelete: 'cascade' })
@@ -29,17 +29,17 @@ export const lessons = pgTable('lessons', {
 export const challengesEnum = pgEnum('type', ['SELECT', 'ASSIST'])
 
 export const challenges = pgTable('challenges', {
-  id: serial('id').primaryKey(),
+  id: integer('id').primaryKey(),
   lessonId: integer('lesson_id')
     .references(() => lessons.id, { onDelete: 'cascade' })
     .notNull(),
-  types: challengesEnum('type').notNull(),
+  type: challengesEnum('type').notNull(),
   question: text('question').notNull(),
   order: integer('order').notNull(),
 })
 
 export const challengeOptions = pgTable('challenge_options', {
-  id: serial('id').primaryKey(),
+  id: integer('id').primaryKey(),
   challengeId: integer('challenge_id')
     .references(() => challenges.id, { onDelete: 'cascade' })
     .notNull(),
@@ -50,7 +50,7 @@ export const challengeOptions = pgTable('challenge_options', {
 })
 
 export const challengeProgress = pgTable('challenge_progress', {
-  id: serial('id').primaryKey(),
+  id: integer('id').primaryKey(),
   userId: text('user_id').notNull(),
   challengeId: integer('challenge_id')
     .references(() => challenges.id, { onDelete: 'cascade' })
@@ -68,7 +68,7 @@ export const userProgress = pgTable('user_progress', {
 })
 
 export const coursesRelations = relations(courses, ({ many }) => ({
-  unit: many(units),
+  units: many(units),
   userProgress: many(userProgress),
 }))
 
@@ -77,7 +77,7 @@ export const unitsRelations = relations(units, ({ many, one }) => ({
     fields: [units.courseId],
     references: [courses.id],
   }),
-  lesson: many(lessons),
+  lessons: many(lessons),
 }))
 
 export const lessonsRelations = relations(lessons, ({ many, one }) => ({
@@ -85,7 +85,7 @@ export const lessonsRelations = relations(lessons, ({ many, one }) => ({
     fields: [lessons.unitId],
     references: [units.id],
   }),
-  challenge: many(challenges),
+  challenges: many(challenges),
 }))
 
 export const challengesRelations = relations(challenges, ({ many, one }) => ({
