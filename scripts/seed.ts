@@ -44,6 +44,9 @@ const main = async () => {
     await db.insert(schema.lessons).values([
       { id: 1, unitId: 1, order: 1, title: 'Hiragana 1' },
       { id: 2, unitId: 1, order: 2, title: 'Hiragana 2' },
+      { id: 3, unitId: 1, order: 3, title: 'Hiragana 3' },
+      { id: 4, unitId: 1, order: 4, title: 'Hiragana 4' },
+      { id: 5, unitId: 1, order: 5, title: 'Hiragana 5' },
     ])
 
     await db.insert(schema.challenges).values([
