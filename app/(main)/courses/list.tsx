@@ -33,7 +33,7 @@ export const List = ({ courses, activeCourseId }: Props) => {
       {courses.map((course) => (
         <Card
           key={course.id}
-          id={course.id}
+          id={course.id!}
           title={course.title}
           imageSrc={course.imageSrc}
           onClick={onClick}

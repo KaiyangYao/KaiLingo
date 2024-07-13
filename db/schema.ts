@@ -1,14 +1,14 @@
 import { relations } from 'drizzle-orm'
-import { pgTable, integer, text, pgEnum, boolean } from 'drizzle-orm/pg-core'
+import { pgTable, integer, serial, text, pgEnum, boolean } from 'drizzle-orm/pg-core'
 
 export const courses = pgTable('courses', {
-  id: integer('id').notNull().primaryKey(),
+  id: serial('id').primaryKey(),
   title: text('title').notNull(),
   imageSrc: text('image_src').notNull(),
 })
 
 export const units = pgTable('units', {
-  id: integer('id').notNull().primaryKey(),
+  id: serial('id').primaryKey(),
   title: text('title').notNull(),
   description: text('description').notNull(),
   courseId: integer('course_id')
@@ -18,7 +18,7 @@ export const units = pgTable('units', {
 })
 
 export const lessons = pgTable('lessons', {
-  id: integer('id').notNull().primaryKey(),
+  id: serial('id').primaryKey(),
   title: text('title').notNull(),
   unitId: integer('unit_id')
     .references(() => units.id, { onDelete: 'cascade' })
@@ -29,7 +29,7 @@ export const lessons = pgTable('lessons', {
 export const challengesEnum = pgEnum('type', ['SELECT', 'ASSIST'])
 
 export const challenges = pgTable('challenges', {
-  id: integer('id').notNull().primaryKey(),
+  id: serial('id').primaryKey(),
   lessonId: integer('lesson_id')
     .references(() => lessons.id, { onDelete: 'cascade' })
     .notNull(),
@@ -39,7 +39,7 @@ export const challenges = pgTable('challenges', {
 })
 
 export const challengeOptions = pgTable('challenge_options', {
-  id: integer('id').notNull().primaryKey(),
+  id: serial('id').primaryKey(),
   challengeId: integer('challenge_id')
     .references(() => challenges.id, { onDelete: 'cascade' })
     .notNull(),
@@ -50,7 +50,7 @@ export const challengeOptions = pgTable('challenge_options', {
 })
 
 export const challengeProgress = pgTable('challenge_progress', {
-  id: integer('id').notNull().primaryKey(),
+  id: serial('id').primaryKey(),
   userId: text('user_id').notNull(),
   challengeId: integer('challenge_id')
     .references(() => challenges.id, { onDelete: 'cascade' })
