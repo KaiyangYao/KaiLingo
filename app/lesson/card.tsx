@@ -52,7 +52,7 @@ export const Card = ({
       )}
     >
       {audio}
-      {imageSrc && (
+      {type === 'SELECT' && imageSrc && (
         <div className="relative aspect-square mb-4 max-h-[80px] lg:max-h-[150px] w-full">
           <Image src={imageSrc} fill alt={text} />
         </div>
