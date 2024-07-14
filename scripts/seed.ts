@@ -51,7 +51,8 @@ const main = async () => {
 
     await db.insert(schema.challenges).values([
       { id: 1, lessonId: 1, type: 'SELECT', order: 1, question: 'Which one of these is "a"' },
-      { id: 2, lessonId: 1, type: 'SELECT', order: 2, question: 'Which one of these is "i"' },
+      { id: 2, lessonId: 1, type: 'ASSIST', order: 2, question: 'e' },
+      { id: 3, lessonId: 1, type: 'SELECT', order: 3, question: 'Which one of these is "u"' },
     ])
 
     await db.insert(schema.challengeOptions).values([
@@ -76,6 +77,54 @@ const main = async () => {
         challengeId: 1,
         imageSrc: '/letters/u.svg',
         correct: false,
+        text: 'う',
+        audioSrc: '/sounds/u.mp3',
+      },
+      {
+        id: 4,
+        challengeId: 2,
+        imageSrc: '/letters/a.svg',
+        correct: false,
+        text: 'あ',
+        audioSrc: '/sounds/a.mp3',
+      },
+      {
+        id: 5,
+        challengeId: 2,
+        imageSrc: '/letters/e.svg',
+        correct: true,
+        text: 'え',
+        audioSrc: '/sounds/e.mp3',
+      },
+      {
+        id: 6,
+        challengeId: 2,
+        imageSrc: '/letters/u.svg',
+        correct: false,
+        text: 'う',
+        audioSrc: '/sounds/u.mp3',
+      },
+      {
+        id: 7,
+        challengeId: 3,
+        imageSrc: '/letters/a.svg',
+        correct: false,
+        text: 'あ',
+        audioSrc: '/sounds/a.mp3',
+      },
+      {
+        id: 8,
+        challengeId: 3,
+        imageSrc: '/letters/e.svg',
+        correct: false,
+        text: 'え',
+        audioSrc: '/sounds/e.mp3',
+      },
+      {
+        id: 9,
+        challengeId: 3,
+        imageSrc: '/letters/u.svg',
+        correct: true,
         text: 'う',
         audioSrc: '/sounds/u.mp3',
       },
