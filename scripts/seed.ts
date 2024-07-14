@@ -61,23 +61,23 @@ const main = async () => {
         imageSrc: '/letters/a.svg',
         correct: true,
         text: 'あ',
-        audioSrc: '/jp_a.mp3',
+        audioSrc: '/sounds/a.mp3',
       },
       {
         id: 2,
         challengeId: 1,
         imageSrc: '/letters/e.svg',
-        correct: true,
+        correct: false,
         text: 'え',
-        audioSrc: '/jp_e.mp3',
+        audioSrc: '/sounds/e.mp3',
       },
       {
         id: 3,
         challengeId: 1,
         imageSrc: '/letters/u.svg',
-        correct: true,
+        correct: false,
         text: 'う',
-        audioSrc: '/jp_u.mp3',
+        audioSrc: '/sounds/u.mp3',
       },
     ])
 
