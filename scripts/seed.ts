@@ -58,7 +58,7 @@ const main = async () => {
       {
         id: 1,
         challengeId: 1,
-        imageSrc: '/a.svg',
+        imageSrc: '/letters/a.svg',
         correct: true,
         text: 'あ',
         audioSrc: '/jp_a.mp3',
@@ -66,7 +66,7 @@ const main = async () => {
       {
         id: 2,
         challengeId: 1,
-        imageSrc: '/e.svg',
+        imageSrc: '/letters/e.svg',
         correct: true,
         text: 'え',
         audioSrc: '/jp_e.mp3',
@@ -74,7 +74,7 @@ const main = async () => {
       {
         id: 3,
         challengeId: 1,
-        imageSrc: '/u.svg',
+        imageSrc: '/letters/u.svg',
         correct: true,
         text: 'う',
         audioSrc: '/jp_u.mp3',
