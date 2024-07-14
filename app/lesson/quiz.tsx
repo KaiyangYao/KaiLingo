@@ -32,11 +32,18 @@ export const Quiz = ({
     // When the user go back and re-enter, the progress continues
     return uncompletedIndex === -1 ? 0 : uncompletedIndex
   })
+  const [selectedOption, setSelectedOption] = useState<number>()
+  const [status, setStatus] = useState<'correct' | 'wrong' | 'none'>('none')
 
   const challenge = challenges[activeIndex]
   const options = challenge?.challengeOptions ?? []
-
   const title = challenge.type === 'ASSIST' ? 'Select the correct meaning' : challenge.question
+
+  const onSelect = (id: number) => {
+    // once the user decide an option, the user can not re-select
+    if (status !== 'none') return
+    setSelectedOption(id)
+  }
 
   return (
     <>
@@ -55,9 +62,9 @@ export const Quiz = ({
               {challenge.type === 'ASSIST' && <QuestionBubble question={challenge.question} />}
               <Challenge
                 options={options}
-                onSelect={() => {}}
-                status="correct"
-                selectedOption={undefined}
+                onSelect={onSelect}
+                status={status}
+                selectedOption={selectedOption}
                 disabled={false}
                 type={challenge.type}
               />
