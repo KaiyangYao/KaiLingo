@@ -50,7 +50,8 @@ export const challengeOptions = pgTable('challenge_options', {
 })
 
 export const challengeProgress = pgTable('challenge_progress', {
-  id: integer('id').primaryKey(),
+  // Potential issue on serial: https://github.com/drizzle-team/drizzle-orm/issues/663
+  id: serial('id').primaryKey(),
   userId: text('user_id').notNull(),
   challengeId: integer('challenge_id')
     .references(() => challenges.id, { onDelete: 'cascade' })
